@@ -17,7 +17,9 @@ Resources:
       Description: Ghostscript AWS Lambda layer adding PDF files conversion support using ImageMagick
       ContentUri: result/
       CompatibleRuntimes:
-        - nodejs10.x
+        - nodejs18.x
+        - nodejs16.x
+        - nodejs14.x
       LicenseInfo: https://www.ghostscript.com/license.html
       RetentionPolicy: Retain
 

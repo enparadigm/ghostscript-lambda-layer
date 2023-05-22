@@ -3,10 +3,14 @@ PROJECT_ROOT = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 DOCKER_IMAGE ?= lambci/lambda-base-2:build
 TARGET ?=/opt/
 
+DEPLOYMENT_BUCKET ?= sharpsell-ghostscript-layer
+STACK_NAME ?= sharpsell-ghostscript-layer
+PROFILE ?= --profile lambda-user
+
 MOUNTS = -v $(PROJECT_ROOT):/var/task \
 	-v $(PROJECT_ROOT)result:$(TARGET)
 
-DOCKER = docker run -it --rm -w=/var/task/build
+DOCKER = docker run --platform linux/amd64  -it --rm -w=/var/task/build
 build result:
 	mkdir $@
 
